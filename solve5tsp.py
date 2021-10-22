@@ -50,3 +50,6 @@ if __name__ == "__main__":
     np.savetxt(str(base_prefix.joinpath("QUBO.csv").absolute()), qubo, delimiter=",", fmt="%.4f")
     with base_prefix.joinpath("graph_path.csv").open("w") as f_:
         f_.write(",".join(map(lambda x: problem[1].get(x), qboard_sol)))
+
+    adj = nx.adjacency_matrix(g)
+    np.savetxt(str(base_prefix.joinpath("initial_adj.csv").absolute()), adj.todense(), delimiter=",", fmt="%.4f")
