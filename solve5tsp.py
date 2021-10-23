@@ -47,11 +47,11 @@ if __name__ == "__main__":
         nx_e += g.get_edge_data(nx_sol[i], nx_sol[i + 1])["weight"]
     print(f"Cost from NX: {nx_e:.2f}")
 
-    np.savetxt(str(base_prefix.joinpath("QUBO.csv").absolute()), qubo, delimiter=",", fmt="%.4f")
-    with base_prefix.joinpath("graph_path.csv").open("w") as f_:
+    np.save(str(base_prefix.joinpath("Q.npy").absolute()), qubo)
+    with base_prefix.joinpath("answers.csv").open("w") as f_:
         f_.write(",".join(map(lambda x: problem[1].get(x), qboard_sol)))
 
     adj = nx.adjacency_matrix(g)
-    np.savetxt(str(base_prefix.joinpath("initial_adj.csv").absolute()), adj.todense(), delimiter=",", fmt="%.4f")
+    np.save(str(base_prefix.joinpath("adj.npy").absolute()), adj.todense())
 
     plot_graph(g, base_prefix)
