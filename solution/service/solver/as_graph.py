@@ -2,7 +2,7 @@ from typing import Dict, Union
 
 import networkx as nx
 
-from .models import EdgeList
+from ..serialization import EdgeList
 
 
 def as_graph(edges: EdgeList) -> Union[nx.Graph, Dict[int, int]]:
@@ -10,7 +10,7 @@ def as_graph(edges: EdgeList) -> Union[nx.Graph, Dict[int, int]]:
     nodes = {}
 
     k = 0
-    for e in edges:
+    for e in edges.__root__:
         if e.src not in nodes.keys():
             nodes[e.src] = k
             k += 1

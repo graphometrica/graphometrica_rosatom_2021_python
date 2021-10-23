@@ -57,7 +57,7 @@ def eff_tsp2qubo(g: nx.Graph) -> Tuple[np.array, float, int]:
                 qubo[i + k * n, j + (k + 1) * n] += coef
 
         if g.has_edge(i + 1, 0):
-            coef = b * g.get_edge_data(i, j)["weight"]
+            coef = b * g.get_edge_data(i + 1, 0)["weight"]
         else:
             coef = a
 

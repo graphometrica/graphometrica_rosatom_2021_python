@@ -27,8 +27,9 @@ def solve(edges: EdgeList) -> Result:
         k = 0
         for i, spin in enumerate(spins[i * n:(i+1) * n]):
             if spin == 1:
-                k = i
+                k = i + 1
         q_path.append(k)
+    q_path.append(0)
 
     time = 0
     for i in range(len(q_path) - 1):
