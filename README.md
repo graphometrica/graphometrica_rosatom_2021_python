@@ -21,7 +21,7 @@
 ## Установка как пакета
 
 - [Установить `poetry`](https://python-poetry.org/docs/#installation)
-- Выполнить `build_and_install_local`
+- Выполнить `make build_and_install_local`
 
 ## Py сервис
 
