@@ -15,7 +15,7 @@ class Application:
         self.queue_out = os.environ["MQ_QUEUE_OUTPUT"]
 
     def _connect(self):
-        self.conn = stomp.Connection([(self.host, self.port)])
+        self.conn = stomp.Connection([(self.host, self.port)], auto_content_length=False)
         self.conn.set_listener("tsp", TSPListener(self.conn, self.queue_out))
         self.conn.connect(self.user, self.password, wait=True, ack="auto")
         self.conn.subscribe(self.queue_in, id=1)
