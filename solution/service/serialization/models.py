@@ -1,6 +1,6 @@
-from typing import List
+from typing import List, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 
 
 class Edge(BaseModel):
@@ -18,6 +18,7 @@ class Result(BaseModel):
     ham_energy: float
     energy: float
 
+    router_id: str
     solver_type: str
     solution_type: str
     adj: List[List[float]]
@@ -27,3 +28,4 @@ class Result(BaseModel):
 class Input(BaseModel):
     edge_list: EdgeList
     solver_type: str
+    router_id: str

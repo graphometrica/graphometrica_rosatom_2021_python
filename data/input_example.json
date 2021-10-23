@@ -1,0 +1,1 @@
+{"edge_list": [{"src":0,"dst":1,"weight":11},{"src":0,"dst":2,"weight":15},{"src":0,"dst":3,"weight":17},{"src":0,"dst":4,"weight":16},{"src":1,"dst":4,"weight":19},{"src":1,"dst":2,"weight":3},{"src":1,"dst":3,"weight":4},{"src":2,"dst":4,"weight":17},{"src":2,"dst":3,"weight":3},{"src":3,"dst":4,"weight":15}], "solver_type": "remote:simcim", "router_id": "123"}

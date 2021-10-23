@@ -8,17 +8,20 @@ from .as_graph import as_graph
 from .eff_tsp2qubo import eff_tsp2qubo
 
 
-def solve(edges: EdgeList) -> Result:
+def solve(
+        edges: EdgeList,
+        solver_type: str = "remote:simcim",
+        router_id: str = "12345"
+) -> Result:
     g, mapping = as_graph(edges)
     token = os.environ["QBOARD_TOKEN"]
-    solver = os.environ["QBOARD_SOLVER"]
     server = os.environ["QBOARD_SERVER"]
     params = {
         "remote_addr": server,
         "access_key": token,
     }
 
-    s = Solver(mode=solver, params=params)
+    s = Solver(mode=solver_type, params=params)
     qubo, penalty, n = eff_tsp2qubo(g)
     spins, energy = s.solve_qubo(qubo, timeout=30)
 
@@ -39,7 +42,8 @@ def solve(edges: EdgeList) -> Result:
         path = [mapping[idx] for idx in q_path],
         ham_energy = energy,
         energy = time,
-        solver_type = solver,
+        router_id = router_id,
+        solver_type = solver_type,
         solution_type = "feasible",
         adj = nx.adjacency_matrix(g).todense().tolist(),
         qubo = qubo.tolist(),

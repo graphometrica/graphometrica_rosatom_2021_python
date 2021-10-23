@@ -1,6 +1,7 @@
 import stomp
+
+from ..serialization import Input, Result
 from ..solver import solve
-from ..serialization import EdgeList, Result
 
 
 class TSPListener(stomp.ConnectionListener):
@@ -9,9 +10,13 @@ class TSPListener(stomp.ConnectionListener):
         self.queue = queue
 
     def on_error(self, frame):
-        print(f"Error: {frame.body}")
+        print('received an error "%s"' % frame.body)
 
     def on_message(self, frame):
-        edges = EdgeList.parse_raw(frame.body)
-        result = solve(edges)
+        print('received a message "%s"' % frame.body)
+        input = Input.parse_raw(frame.body)
 
+        result = solve(input.edge_list, input.solver_type, input.router_id)
+        print('Sending result "%s"' % result.json())
+
+        self.conn.send(body=result.json(), destination=self.queue)
