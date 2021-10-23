@@ -24,7 +24,4 @@ class Application:
         self._connect()
 
         while True:
-            if not self.conn.is_connected():
-                self._connect()
-            else:
-                sleep(2)
+            sleep(2)
