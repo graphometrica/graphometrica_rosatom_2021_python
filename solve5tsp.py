@@ -35,6 +35,8 @@ if __name__ == "__main__":
                 k = i
         qboard_sol.append(k)
 
+    qboard_sol[0] = qboard_sol[-1]
+
     print("Solution from the QBOARD:")
     print(qboard_sol)
     print(f"Cost from QBOARD: {energy2time(energy, a, n):.2f}")
