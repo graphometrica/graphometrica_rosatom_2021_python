@@ -25,3 +25,5 @@ class Application:
 
         while True:
             sleep(2)
+
+        self.conn.disconnect()
