@@ -25,5 +25,6 @@ def csv2graph(csv_file: Path) -> Tuple[nx.Graph, Dict[str, int]]:
             g.add_edge(nodes[src], nodes[dst], weight=float(weight))
 
     nodes_reverse = {v: k for k, v in nodes.items()}
+    nx.set_node_attributes(g, name="name", values=nodes_reverse)
 
     return (g, nodes_reverse)

@@ -8,6 +8,9 @@
 - [Итоговая QUBO-матрица](./data/results/QUBO.csv)
 - [Найденный путь](./data/results/graph_path.csv)
 
+Вид исходного графа:
+![](./data/results/problem_graph.png)
+
 # Воспроизводимый запуск
 
 - [Установить `poetry`](https://python-poetry.org/docs/#installation)

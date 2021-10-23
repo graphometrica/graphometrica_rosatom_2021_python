@@ -7,7 +7,7 @@ from qboard import Solver
 
 from solution.converters import tsp2qubo
 from solution.energy_utils import energy2time
-from solution.graph_utils import csv2graph
+from solution.graph_utils import csv2graph, plot_graph
 
 if __name__ == "__main__":
     out_prefix = sys.argv[1]
@@ -53,3 +53,5 @@ if __name__ == "__main__":
 
     adj = nx.adjacency_matrix(g)
     np.savetxt(str(base_prefix.joinpath("initial_adj.csv").absolute()), adj.todense(), delimiter=",", fmt="%.4f")
+
+    plot_graph(g, base_prefix)
