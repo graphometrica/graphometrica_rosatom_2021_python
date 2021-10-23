@@ -15,4 +15,4 @@
 
 - [Установить `poetry`](https://python-poetry.org/docs/#installation)
 - Выполнить `make install_dev`
-- Выполнить `make run_5_vertices`
+- Выполнить `make run_5_vertices KEY=%API key here%`

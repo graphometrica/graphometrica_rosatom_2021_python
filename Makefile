@@ -3,4 +3,4 @@ install_dev:
 	poetry run pip install --index-url https://repo.qboard.tech/ qboard-client
 
 run_5_vertices:
-	poetry run python solve5tsp.py data/results/
+	poetry run python solve5tsp.py data/results/ $(KEY)

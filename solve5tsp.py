@@ -14,7 +14,7 @@ if __name__ == "__main__":
     base_prefix = Path(out_prefix)
     base_prefix.mkdir(exist_ok=True, parents=True)
 
-    passwd = "ebb7770c-4360-4a13-a2bc-240a8c59c51c"
+    passwd = sys.argv[2]
     params = {
         "remote_addr": "https://remote.qboard.tech",
         "access_key": passwd

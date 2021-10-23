@@ -1,4 +1,5 @@
 import stomp
+from ..solver import solve
 from ..serialization import EdgeList, Result, as_graph
 
 
@@ -12,4 +13,6 @@ class TSPListener(stomp.ConnectionListener):
 
     def on_message(self, frame):
         edges = EdgeList.parse_raw(frame.body)
-        g, nodes_map = as_graph(edges)
+        result = solve(edges)
+
+        # Тут надо
