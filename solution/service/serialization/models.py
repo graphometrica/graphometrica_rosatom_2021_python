@@ -21,4 +21,4 @@ class Result(BaseModel):
     solver_type: str
     solution_type: str
     adj: List[List[float]]
-    quba: List[List[float]]
+    qubo: List[List[float]]

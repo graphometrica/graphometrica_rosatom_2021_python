@@ -1,4 +1,5 @@
 import stomp
+from time import sleep
 
 from .listeners import TSPListener
 
@@ -19,6 +20,12 @@ class Application:
 
     def start(self):
         self._connect()
+
+        while True:
+            if not self.conn.is_connected():
+                self.reconnect()
+            else:
+                sleep(2)
 
     def stop(self):
         self.conn.disconnect()
