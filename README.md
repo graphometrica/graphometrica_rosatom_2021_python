@@ -6,7 +6,7 @@
 - [Матрица смежности графа](./data/results/adj.npy)
 - [Конвертер из networkx.Graph в QUBO-матрицу](./solution/converters/tsp2qubo.py)
 - [Итоговая QUBO-матрица](./data/results/Q.npy)
-- [Найденный путь](./data/results/answers.csv)
+- [Найденный путь](./data/results/answer.csv)
 
 Вид исходного графа:
 ![](./data/results/problem_graph.png)

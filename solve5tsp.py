@@ -48,7 +48,7 @@ if __name__ == "__main__":
     print(f"Cost from NX: {nx_e:.2f}")
 
     np.save(str(base_prefix.joinpath("Q.npy").absolute()), qubo)
-    with base_prefix.joinpath("answers.csv").open("w") as f_:
+    with base_prefix.joinpath("answer.csv").open("w") as f_:
         f_.write(",".join(map(lambda x: problem[1].get(x), qboard_sol)))
 
     adj = nx.adjacency_matrix(g)
