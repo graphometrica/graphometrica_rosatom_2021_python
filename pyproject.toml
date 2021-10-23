@@ -3,6 +3,9 @@ name = "rosatom"
 version = "0.1.0"
 description = ""
 authors = ["SemyonSinchenko <semyonsinchenko@yahoo.com>"]
+packages = [
+         {include = "solution"},
+]
 
 [[tool.poetry.source]]
 name = "pypi_"

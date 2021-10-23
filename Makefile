@@ -4,3 +4,7 @@ install_dev:
 
 run_5_vertices:
 	poetry run python solve5tsp.py data/results/ $(KEY)
+
+build_and_install_local:
+	poetry build
+	poetry run pip install .
