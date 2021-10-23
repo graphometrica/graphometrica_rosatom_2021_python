@@ -54,6 +54,6 @@ if __name__ == "__main__":
         f_.write(",".join(map(lambda x: problem[1].get(x), qboard_sol)))
 
     adj = nx.adjacency_matrix(g)
-    np.save(str(base_prefix.joinpath("adj.npy").absolute()), adj.todense())
+    np.save(str(base_prefix.joinpath("adjacency.npy").absolute()), adj.todense())
 
     plot_graph(g, base_prefix)
