@@ -4,3 +4,6 @@ install_dev:
 
 run_5_vertices:
 	poetry run python solve5tsp.py data/results/ $(KEY)
+
+run_jms:
+	poetry run python jmsTest.py
