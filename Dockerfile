@@ -21,4 +21,4 @@ COPY main.py /app/
 
 RUN make build_and_install_local
 
-CMD ["poetry", "run", "main.py"]
+CMD ["poetry", "run", "python", "main.py"]
