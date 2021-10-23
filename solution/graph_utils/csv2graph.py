@@ -4,8 +4,12 @@ from typing import Dict, Tuple
 import networkx as nx
 
 
-def csv2graph(csv_file: Path) -> Tuple[nx.Graph, Dict[str, int]]:
-    g = nx.Graph()
+def csv2graph(csv_file: Path, directed: bool = False) -> Tuple[nx.Graph, Dict[str, int]]:
+    if directed:
+        g = nx.DiGraph()
+    else:
+        g = nx.Graph()
+
     lines = csv_file.read_text().split("\n")
     lines.pop(0)
 
