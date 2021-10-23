@@ -22,3 +22,8 @@ class Result(BaseModel):
     solution_type: str
     adj: List[List[float]]
     qubo: List[List[float]]
+
+
+class Input(BaseModel):
+    edge_list: EdgeList
+    solver_type: str

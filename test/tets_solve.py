@@ -3,10 +3,6 @@ import os
 import sys
 from pathlib import Path
 
-sys.path.append(
-    str(Path(__file__).parent.parent.absolute())
-)
-
 from solution.graph_utils import csv2graph
 from solution.service.serialization import EdgeList, Result
 from solution.service.solver import solve

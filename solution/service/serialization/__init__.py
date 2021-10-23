@@ -1,1 +1,1 @@
-from .models import EdgeList, Result
+from .models import EdgeList, Result, Input
