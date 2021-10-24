@@ -10,6 +10,9 @@ def tsp2qubo(g: nx.Graph) -> Tuple[np.array, float, int]:
         A * \sum_j (1 - \sum_i x_{i,j})^2 + \\
         A * \sum_{u,v \notin E} \sum_j x_{u,j} x_{v, j+1} + \\
         B * \sum_{u,v \in E} w_{u,v} \sum_j x_{u,j} x_{v, j+1}
+
+    input: networkx.Graph
+    output: QUBO, A-contrain, Problem size
     """
     n = g.number_of_nodes()
     shape = n * n
@@ -57,6 +60,8 @@ def tsp2qubo(g: nx.Graph) -> Tuple[np.array, float, int]:
 
     # A * \sum_{u,v \notin E} \sum_j x_{u,j} x_{v, j+1}
     # B * \sum_{u,v \in E} w_{u,v} \sum_j x_{u,j} x_{v, j+1}
+    # We could see that the 3d and 4th parts of \hat{H} have the difference in coefficeint only.
+    # That is why they were combined into one loop.
     for i in range(n):
         for j in range(n):
             if g.has_edge(i, j):

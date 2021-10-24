@@ -8,6 +8,7 @@
 ### Общий вид гамильтониана
 
 ```
+             __           __                _            __
 hat{H}  =  A \     (1  -  \     x  )   +  A \     (1  -  \     x  )   +
              /__ i        /__ j  ij         /__ j        /__ i  ij     
                                                                        
@@ -28,7 +29,7 @@ B = 1
 ```
 
 ```
-A  =  max({w   text{  }foralltext{  }u,v in E})
+A  =  max({w   forall u,v in E})
             u,v                                
 ```
 
