@@ -1,6 +1,5 @@
 import stomp
 import os
-import sys
 from time import sleep
 
 from .listeners import TSPListener
