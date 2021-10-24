@@ -6,11 +6,31 @@
 ![](./data/results/problem_graph.png)
 
 ### Общий вид гамильтониана
-$$
-\hat{H} = A \sum_i (1 - \sum_j x_{ij})^2 + A \sum_j (1 - \sum_i x_{ij})^2 + A \sum_{u,v \notin E} \sum_j x_{u,j}x_{v,j+1} + B \sum_{u,v \in E} w_{u,v} \sum_j x_{u,j} x_{v, j+1}
-$$
 
-, где $B = 1$, $A = max({w_{u,v}\text{  }\forall\text{  }u,v \in E})$
+```
+hat{H}  =  A \     (1  -  \     x  )   +  A \     (1  -  \     x  )   +
+             /__ i        /__ j  ij         /__ j        /__ i  ij     
+                                                                       
+                   __              __                                  
+                A \               \     x   x         +                
+                  /__ u,v notin E /__ j  u,j v,j + 1                   
+                                                                       
+                   __                __                                
+                B \            w    \     x    x                       
+                  /__ u,v in E  u,v /__ j  u,j  v, j + 1               
+
+```
+
+`A`, `B` - коэффициенты.
+
+```
+B = 1
+```
+
+```
+A  =  max({w   text{  }foralltext{  }u,v in E})
+            u,v                                
+```
 
 - [Конвертер из networkx.Graph в QUBO-матрицу](./solution/converters/tsp2qubo.py)
 
