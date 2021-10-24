@@ -1,5 +1,6 @@
 import stomp
 import os
+import sys
 from time import sleep
 
 from .listeners import TSPListener
@@ -23,8 +24,12 @@ class Application:
     def start(self):
         self._connect()
 
+        n = 0
         while True:
-            print("Waiting...")
+            if n == 50:
+                print("Waiting...")
+                n = 0
+            n += 1
             sleep(2)
 
         self.conn.disconnect()
