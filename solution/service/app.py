@@ -24,6 +24,7 @@ class Application:
         self._connect()
 
         while True:
+            print("Waiting...")
             sleep(2)
 
         self.conn.disconnect()
